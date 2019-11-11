@@ -7,7 +7,10 @@
         <p>No crawls yet!</p>
     <%else%>
         <% @user_crawls.each do |crawl|%>
-            <h2><%=crawl.name%></h2>
+            <h2><%=link_to crawl.name, show_crawl_path(crawl) %></h2>
+            <h2><%=crawl.location%></h2>
+            <h2><%=crawl.duration%> Hours</h2>
+            <h2><%=crawl.date%></h2>
         <%end %>
     <%end %>
     <p><%= link_to "Create a crawl", new_crawl_path %></p>

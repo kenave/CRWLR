@@ -10,8 +10,19 @@ class CrawlsController < ApplicationController
     #byebug
     @crawl.host = User.first
     @crawl.save
-    redirect_to user_show_path(@crawl.host)
+    redirect_to show_user_path(@crawl.host)
   end
+
+  def show
+    @crawl = Crawl.find(params[:id])
+    @places = @crawl.places
+    @crawl_places = CrawlPlace.where(crawl_id: @crawl.id)
+    byebug
+    # @places = crawl_places.map do |cp|
+    #   Place.find(cp.place_id)
+    # end
+  end
+
   private
 
   def crawl_params
