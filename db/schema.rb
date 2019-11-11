@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_151456) do
+ActiveRecord::Schema.define(version: 2019_11_11_162902) do
 
   create_table "crawls", force: :cascade do |t|
     t.integer "host_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "location"
+    t.integer "duration"
+    t.date "date"
   end
 
   create_table "users", force: :cascade do |t|

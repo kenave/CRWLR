@@ -1,3 +1,14 @@
-<h2>Welcome, <%= @user.name %>!</h2>
+<div class="jumbotron text-center">
+    <h2>Welcome, <%= @user.name %>!</h2>
+</div>
 
-<p><%= link_to "Create a crawl", new_crawl_path %></p>
+<div class="container">
+    <%if @user_crawls.empty?%>
+        <p>No crawls yet!</p>
+    <%else%>
+        <% @user_crawls.each do |crawl|%>
+            <h2><%=crawl.name%></h2>
+        <%end %>
+    <%end %>
+    <p><%= link_to "Create a crawl", new_crawl_path %></p>
+</div>

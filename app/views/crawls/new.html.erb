@@ -1,3 +1,16 @@
-<h2>sup</h2>
+<h2>Create a new crawl</h2>
 
-<%= form_for %>
+<%= form_for @crawl, url: {action: "create"} do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name%> <br>
+
+    <%= f.label :location %>
+    <%= f.text_field :location %> <br>
+
+    <%= f.label :duration, "How many hours?" %>
+    <%= f.number_field :duration%> <br>
+
+    <%= f.label :date%>
+    <%= f.text_field :date%>
+    <%= f.submit %>
+<%end%>
