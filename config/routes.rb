@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show', as: 'user_show'
 
+  get '/crawls/new', to: 'crawls#new', as: 'new_crawl'
+
 end
