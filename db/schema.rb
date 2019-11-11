@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_162902) do
+ActiveRecord::Schema.define(version: 2019_11_11_182556) do
+
+  create_table "crawl_places", force: :cascade do |t|
+    t.integer "crawl_id"
+    t.integer "place_id"
+    t.float "duration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "crawls", force: :cascade do |t|
     t.integer "host_id"
@@ -20,6 +28,22 @@ ActiveRecord::Schema.define(version: 2019_11_11_162902) do
     t.string "location"
     t.integer "duration"
     t.date "date"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "business_id"
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "postal_code"
+    t.float "latitude"
+    t.float "longitude"
+    t.float "stars"
+    t.integer "price_range"
+    t.string "categories"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
