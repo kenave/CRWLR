@@ -2,7 +2,7 @@
   <h2 class="my-4"><%=@crawl.name%>
     <small><%=@crawl.location%></small>
   </h2>
-  <h3>On <%=@crawl.date%> for <%=@crawl.duration%> Hours</h3>
+  <h3>On <%=@crawl.date.strftime('%A, %B %d, %Y')%> for <%=@crawl.duration%> Hours</h3>
   <hr>
   <br>
 
