@@ -17,7 +17,7 @@ class CrawlsController < ApplicationController
     @crawl = Crawl.find(params[:id])
     @places = @crawl.places
     @crawl_places = CrawlPlace.where(crawl_id: @crawl.id)
-    byebug
+    #byebug
     # @places = crawl_places.map do |cp|
     #   Place.find(cp.place_id)
     # end
