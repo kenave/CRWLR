@@ -4,7 +4,7 @@
         <div class="col-md-8">
             <h2>Stars: <%= @place.stars %></h2>
             <p>Categories: <%= @place.categories %></p>
-            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&zoom=15&markers=#{@place.latitude}%2C#{@place.longitude}&key=AIzaSyBCHsT2kzhR1fPfu7OUG_Z5GouUo-UNUnw" %>
+            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&zoom=13&markers=#{@place.latitude}%2C#{@place.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %>
         </div>
         <div class="card">
             <div class="card-header">
