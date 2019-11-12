@@ -6,12 +6,20 @@
     <%if @user_crawls.empty?%>
         <p>No crawls yet!</p>
     <%else%>
-        <% @user_crawls.each do |crawl|%>
-            <h2><%=link_to crawl.name, show_crawl_path(crawl) %></h2>
-            <h2><%=crawl.location%></h2>
-            <h2><%=crawl.duration%> Hours</h2>
-            <h2><%=crawl.date%></h2>
-        <%end %>
+        <div class="row">
+            <% @user_crawls.each do |crawl|%>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title"><%=link_to crawl.name, show_crawl_path(crawl) %></h2>
+                            <h4><%=crawl.location%></h4>
+                            <p class="card-text"><%=crawl.duration%> Hours</p>
+                            <p class="card-text"><%=crawl.date%></p>
+                        </div>
+                    </div>
+                </div>
+            <%end %>
+        </div>
     <%end %>
     <p><%= link_to "Create a crawl", new_crawl_path %></p>
 </div>

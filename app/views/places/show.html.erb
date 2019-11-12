@@ -1,7 +1,21 @@
-<h2>Name: <%= @place.name %></h2>
-<h2>Address: <%= @place.address %></h2>
-<h2>City: <%= @place.city %></h2>
-<h2>State: <%= @place.state %></h2>
-<h2>Stars: <%= @place.stars %></h2>
-<h2>Price Range: <%= @place.price_range %></h2>
-<h2>Categories: <%= @place.categories %></h2>
+<div class="container">
+    <h2 class="my-4"><%= @place.name %></h2>
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Stars: <%= @place.stars %></h2>
+            <p>Categories: <%= @place.categories %></p>
+            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&zoom=15&markers=#{@place.latitude}%2C#{@place.longitude}&key=AIzaSyBCHsT2kzhR1fPfu7OUG_Z5GouUo-UNUnw" %>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h4>About this place</h4>
+            </div>
+            <div class="card-body">
+                <p>Address: <%= @place.address %></p>
+                <p>City: <%= @place.city %></p>
+                <p>State: <%= @place.state %></p>
+                <p>Price Range: <%= @place.price_range %></p>
+            </div>
+        </div>
+    </div>
+</div>
