@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_182556) do
+ActiveRecord::Schema.define(version: 2019_11_12_164237) do
 
   create_table "crawl_places", force: :cascade do |t|
     t.integer "crawl_id"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2019_11_11_182556) do
     t.string "location"
     t.integer "duration"
     t.date "date"
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "crawl_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "places", force: :cascade do |t|

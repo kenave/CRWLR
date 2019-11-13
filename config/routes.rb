@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get 'crawls/:id', to: 'crawls#show', as: 'show_crawl'
   post '/crawls', to: 'crawls#create'
 
+  post '/invites', to: 'invites#create'
+  delete '/invites/:id', to: 'invites#delete', as: 'delete_invite'
+
 end
