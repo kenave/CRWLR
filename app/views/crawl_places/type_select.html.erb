@@ -1,0 +1,10 @@
+<h2>Find a place in <%= @crawl.location %></h2>
+
+<%= form_tag select_search_category_path, method: :get, class: 'form-search' do %>
+<%= label_tag "What kind of place next?"%>
+<%= select_tag :type, options_for_select(["Restaurant", "Bar"], "Restaurant") %>
+<br>
+
+<%= submit_tag "Next" %>
+
+<% end %>
