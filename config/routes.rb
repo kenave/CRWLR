@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   get 'crawls/:id', to: 'crawls#show', as: 'show_crawl'
   post '/crawls', to: 'crawls#create'
 
+  get 'crawls/:crawl_id/places/select', to: 'crawl_places#type_select', as: 'select_place_type'
+  get 'crawls/:crawl_id/places/', to: 'crawl_places#category_select', as: 'select_search_category'
+  get 'crawls/:crawl_id/places/search/', to: 'crawl_places#search_results', as: 'search_results'
+  get '/crawls/:id/places/new', to: 'crawl_places#new', as: 'new_crawl_place'
+
 end

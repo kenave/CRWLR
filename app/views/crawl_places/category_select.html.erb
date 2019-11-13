@@ -1,0 +1,8 @@
+<h2>Please select a category: </h2>
+
+<%= form_tag search_results_path, method: :get, class: 'form-search' do %>
+<%= label_tag "Category"%>
+<%= select_tag "category", options_for_select(@categories), prompt: "Please Select"%>
+<br>
+<%= submit_tag "Next" %>
+<% end %>
