@@ -15,4 +15,26 @@
   <% end %>
 
   <h5><%= link_to "Add Places to this Crawl", select_place_type_path(@crawl) %></h5>
+  
+  <% if @guests.empty? %>
+    <p>No guests for this crawl! Why dont you invite some?</p>
+  <%else%>
+    <h4>Invites</h4>
+      <% @invites.each do |invite|%>
+        <%= invite.user.name%>
+        <%= button_to 'Uninvite', delete_invite_path(invite), method: :delete%>
+      <%end%>
+  <%end%>
+  <br><br>
+  <h3>Invite some people</h3>
+  <% @potential_invites.each do |potential_invite|%>
+    <%# <%= form_with url: "/invites" do |form| %>
+    <%= form_with model: @invite, url: "/invites", method: 'post' do |form| %>
+      <%= form.label :name, "#{potential_invite.name}"%>
+      <%= form.hidden_field :user_id, :value => potential_invite.id%>
+      <%= form.hidden_field :crawl_id, :value => @crawl.id%>
+      <%= form.submit "Invite"%>
+    <%end%>
+    <br>
+  <%end%>
 </div>

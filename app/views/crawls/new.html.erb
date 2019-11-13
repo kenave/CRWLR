@@ -1,16 +1,21 @@
-<h2>Create a new crawl</h2>
+<div class="containiner">
+    
+    <h2 class="mb-4">Create a new crawl</h2>
 
-<%= form_for @crawl, url: {action: "create"} do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name%> <br>
+    <%= form_for @crawl, url: {action: "create"} do |f| %>
+        <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control"%>
+        </div>
 
-    <%= f.label :location %>
-    <%= f.text_field :location %> <br>
+        <%= f.label :location %>
+        <%= f.text_field :location %> <br>
 
-    <%= f.label :duration, "How many hours?" %>
-    <%= f.number_field :duration%> <br>
+        <%= f.label :duration, "How many hours?" %>
+        <%= f.number_field :duration%> <br>
 
-    <%= f.label :date%>
-    <%= f.text_field :date%>
-    <%= f.submit %>
-<%end%>
+        <%= f.label :date%>
+        <%= f.text_field :date%>
+        <%= f.submit %>
+    <%end%>
+</div>
