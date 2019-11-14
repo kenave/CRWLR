@@ -188,10 +188,17 @@ class Place < ApplicationRecord
 
   def self.search(categories)
     # returns a list of 10 places closest with matching categories to the last place
-    results = []
     results = categories.map do |cat|
       Place.where("Categories LIKE ?", "%#{cat}%")
     end
+    results.flatten!
+  end
+
+  def self.sort_by_distance(places, last_place)
+    sorted = places.sort_by do |place|
+      Geocoder::Calculations.distance_between(place, last_place)
+    end
+    first_ten = sorted[0..9]
   end
 
 end

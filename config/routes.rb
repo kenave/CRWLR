@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'crawls/:crawl_id/places/', to: 'crawl_places#category_select', as: 'select_search_category'
   get 'crawls/:crawl_id/places/search/', to: 'crawl_places#search_results', as: 'search_results'
   get '/crawls/:id/places/new', to: 'crawl_places#new', as: 'new_crawl_place'
+  post '/crawls/:id/places/create', to: 'crawl_places#create', as: 'create_crawl_place'
   
   post '/invites', to: 'invites#create'
   delete '/invites/:id', to: 'invites#delete', as: 'delete_invite'

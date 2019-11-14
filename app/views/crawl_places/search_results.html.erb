@@ -1,0 +1,10 @@
+<h2>Results (sorted by distance from <%=@last_place.name%>):</h2>
+
+<ol>
+<% @sorted_results.each do |place| %>
+<li><%=link_to place.name, show_place_path(place) %></li>
+<%= button_to "Add Place to Crawl", create_crawl_place_path(@crawl), params: {crawl_place: {crawl_id: @crawl.id, place_id: place.id, duration: @duration} } %>
+<p><%= place.address %></p>
+<p><%= place.categories %></p>
+<% end %>
+</ol>
