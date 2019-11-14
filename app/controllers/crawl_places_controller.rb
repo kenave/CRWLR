@@ -15,6 +15,12 @@ class CrawlPlacesController < ApplicationController
     end
   end
 
+  def destroy
+    crawl_place = CrawlPlace.find_by(crawl_id: params[:crawl_place][:crawl_id], place_id: params[:crawl_place][:place_id])
+    crawl_place.destroy
+    redirect_to show_crawl_path(params[:crawl_place][:crawl_id])
+  end
+
   def type_select
     @crawl = Crawl.find(params[:crawl_id])
     @types = ["Restaurant", "Bar"]
@@ -33,7 +39,6 @@ class CrawlPlacesController < ApplicationController
   end
 
   def search_results
-    byebug
     @crawl = Crawl.find(params[:crawl_id])
     @duration = params[:duration]
     # @crawl = Crawl.find(params[:crawl_place][:crawl_id])

@@ -10,6 +10,7 @@
     <% @places.each_with_index do |place, i| %>
     <h4><%= link_to place.name, show_place_path(place) %></h4>
     <p>Duration: <%= @crawl_places[i].duration %> Hours</p>
+    <%= button_to "Remove from Crawl", delete_crawl_place_path(@crawl), method: :delete, params: {crawl_place: {crawl_id: @crawl.id, place_id: place.id, duration: @duration} } %>
     <br>
     <% end %>
   <% end %>
