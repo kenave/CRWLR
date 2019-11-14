@@ -44,8 +44,12 @@ class CrawlPlacesController < ApplicationController
     # @crawl = Crawl.find(params[:crawl_place][:crawl_id])
     @categories = params[:category]
     results = Place.search(@categories)
-    @sorted_results = Place.sort_by_distance(results, @crawl.places.last)
-    @last_place = @crawl.places.last
+    if @crawl.places.last
+      @last_place = @crawl.places.last
+    else
+      @last_place = [36.1147, 115.1728]
+    end
+    @sorted_results = Place.sort_by_distance(results, @last_place)
   end
 
   private

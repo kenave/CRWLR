@@ -2,5 +2,11 @@
     <h2>Welcome to CRWLR</h2>
 </div>
 <div class="container">
-    <p><%= link_to "User page", show_user_path(User.find(1)) %></p>
+    <% if !logged_in? %>
+        <p><%= link_to "Login", login_path %></p>
+        <br>
+        <p><%= link_to "Sign up", new_user_path %></p>
+    <% else %>
+        <p><%= link_to "My Crawls", show_user_path(current_user) %></p>
+    <% end %>
 </div>

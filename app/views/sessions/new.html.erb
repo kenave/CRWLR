@@ -1,0 +1,18 @@
+<h2>Login</h2>
+
+<% if flash[:alert] %>
+  <p style='color:red;'><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_tag sessions_path do %>
+  <%= label_tag "Username" %>
+  <%= text_field_tag :username %>
+  <br>
+  <%= label_tag "Password" %>
+  <%= password_field_tag :password %>
+  <br>
+  <%= submit_tag "Sign In" %>
+<% end %>
+<br>
+<p>No account? <%= link_to "Sign up", new_user_path %></p>
+

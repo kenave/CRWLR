@@ -1,0 +1,21 @@
+<h2>Sign up for an account!</h2>
+
+<% if flash[:errors] %>
+  <p style='color:red'><%= flash[:errors] %></p>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <br>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <br>
+  <%= f.submit "Create an Account" %>
+<% end %>

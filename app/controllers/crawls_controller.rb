@@ -1,13 +1,13 @@
 class CrawlsController < ApplicationController
+  before_action :authorized, only: [:show]
   
   def new
-    @user = User.find(1)
     @crawl = Crawl.new
   end
 
   def create
     @crawl = Crawl.new(crawl_params)
-    @crawl.host = User.first
+    @crawl.host = current_user
     @crawl.save
     redirect_to show_user_path(@crawl.host)
   end
@@ -20,7 +20,6 @@ class CrawlsController < ApplicationController
     @potential_invites = potential_invites(@crawl)
     @invite = Invite.new
     @invites = Invite.where(crawl_id: @crawl.id)
-
   end
 
   def invite

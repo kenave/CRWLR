@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   get '/', to: 'application#root'
   get '/home', to: 'application#home', as: 'home'
 
+  get '/login', to: 'sessions#new', as: 'login'
+  post 'sessions', to: 'sessions#create', as: 'sessions'
+  delete 'sessions', to: 'sessions#destroy', as: 'logout'
+
+  get '/users/new', to: 'users#new', as: 'new_user'
+  post '/users', to: 'users#create'
   get '/users/:id', to: 'users#show', as: 'show_user'
 
   get '/places/:id', to: 'places#show', as: 'show_place'
