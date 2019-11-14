@@ -1,4 +1,8 @@
 <div class="container">
+    <%# <div class="card border-0 shadow my-5"> %>
+    <%# <div class="card-body p-5"> %>
+    <h2>Hey, <%=@user.name%>!</h2>
+    <br>
     <%if @user_crawls.empty?%>
         <p>No crawls yet!</p>
     <%else%>
@@ -17,5 +21,7 @@
             <%end %>
         </div>
     <%end %>
-    <p><%= link_to "Create a crawl", new_crawl_path %></p>
+    <p><%= link_to "Create a crawl", new_crawl_path, class: "btn btn-primary btn-lg" %></p>
+    <%# </div> %>
+    <%# </div> %>
 </div>
