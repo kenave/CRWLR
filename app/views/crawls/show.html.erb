@@ -40,7 +40,7 @@
       </div>
     <%end%>
     <br><br>
-    <h3 class="mt-3">Invite some people</h3>
+    <h3>Invite some people</h3>
       <div class="row">
         <% @potential_invites.each do |potential_invite|%>
           <%= form_with model: @invite, url: "/invites", method: 'post', class: "col-lg-3 my-2" do |form| %>
@@ -68,13 +68,15 @@
             <hr>
             <br>
 
-            <% if @places %>
+            <% if !@places.empty? %>
+              <div style="float: right;">
+                <%=image_tag @map_url%>
+              </div>
               <% @places.each_with_index do |place, i| %>
-                <h4><%="#{i+1}. "%><%= link_to place.name, show_place_path(place) %></h4>
-                <p>Duration: <%= @crawl_places[i].duration %> Hours</p>
-                <br>
+              <h4><%="#{i+1}. "%><%= link_to place.name, show_place_path(place) %></h4>
+              <p>Duration: <%= @crawl_places[i].duration %> Hours</p>
+              <br>
               <% end %>
-              <%=image_tag @map_url%>
             <% end %>
         </div>
       </div>
