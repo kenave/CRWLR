@@ -7,7 +7,7 @@
         <p>No crawls yet!</p>
     <%else%>
         <div class="row">
-            <% @user_crawls.each do |crawl|%>
+            <% @user_crawls.each_with_index do |crawl, i|%>
                 <div class="col-lg-4 col-sm-6 mb-4">
                     <div class="card h-100">
                         <div class="card-body text-dark">

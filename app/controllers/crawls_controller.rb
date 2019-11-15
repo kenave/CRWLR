@@ -20,6 +20,21 @@ class CrawlsController < ApplicationController
     @potential_invites = potential_invites(@crawl)
     @invite = Invite.new
     @invites = Invite.where(crawl_id: @crawl.id)
+    @map_url = url_maker(@places)
+    byebug
+  end
+
+  def url_maker(places)
+    url = "https://maps.googleapis.com/maps/api/staticmap?&size=600x300&maptype=roadmap"
+    # &markers=label: index | lat , long
+    places.each_with_index do |place, i|
+      index = i + 1
+      lat = place.latitude
+      long = place.longitude
+      url << "&markers=label:#{index}|#{lat},#{long}"
+    end
+    url << "&key=#{ENV["GOOGLE_MAPS_API_KEY"]}"
+    #https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=YOUR_API_KEY
   end
 
   def invite
