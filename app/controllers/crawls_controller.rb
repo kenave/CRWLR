@@ -21,7 +21,6 @@ class CrawlsController < ApplicationController
     @invite = Invite.new
     @invites = Invite.where(crawl_id: @crawl.id)
     @map_url = url_maker(@places)
-    byebug
   end
 
   def url_maker(places)

@@ -10,7 +10,7 @@
     <hr>
     <br>
 
-    <% if @places %>
+    <% if !@places.empty? %>
       <% @places.each_with_index do |place, i| %>
       <h4><%="#{i+1}. "%><%= link_to place.name, show_place_path(place) %></h4>
       <p>Duration: <%= @crawl_places[i].duration %> Hours</p>
