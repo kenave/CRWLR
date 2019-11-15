@@ -7,6 +7,7 @@
         <br>
         <p><%= link_to "Sign up", new_user_path %></p>
     <% else %>
-        <p><%= link_to "My Crawls", show_user_path(current_user) %></p>
+        <p><%= link_to "My Hosted Crawls", show_user_path(current_user) %></p>
+        <p><%= link_to "My Invited Crawls", show_user_invites_path(current_user) %></p>
     <% end %>
 </div>

@@ -20,6 +20,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def invites
+    @invites = Invite.where(user_id: current_user)
+    @invited_crawls = @invites.map do |invite|
+      Crawl.where(id: invite.crawl_id)
+    end
+    @invited_crawls.flatten!
+    @places = @invited_crawls.map do |crawl|
+      crawl.places
+    end
+    byebug
+  end
+
   private
 
   def user_params

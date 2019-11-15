@@ -1,4 +1,4 @@
-<% if @crawl.host == current_user || @guests.include?(current_user) %>
+<% if @crawl.host == current_user %>
 
   <div class="container">  
     <h2 class="my-4"><%=@crawl.name%>
@@ -50,6 +50,28 @@
       </div>
   </div>
 
-  <% else %>
+<% elsif @guests.include?(current_user) %>
+    <div class="container">  
+    <h2 class="my-4"><%=@crawl.name%>
+      <small><%=@crawl.location%></small>
+    </h2>
+    <h3>Hosted by <%= @crawl.host.name %></h3>
+    <h3>On <%=@crawl.date.strftime('%A, %B %d, %Y')%> for <%=@crawl.duration%> Hours</h3>
+    <hr>
+    <br>
+
+    <% if @places %>
+      <% @places.each_with_index do |place, i| %>
+      <h4><%= link_to place.name, show_place_path(place) %></h4>
+      <p>Duration: <%= @crawl_places[i].duration %> Hours</p>
+      <br>
+      <% end %>
+    <% end %>
+
+      </div>
+    <br><br>
+  </div>
+
+<% else %>
   <p> You do not have access to this page </p>
 <% end %>

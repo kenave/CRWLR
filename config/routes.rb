@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/users/new', to: 'users#new', as: 'new_user'
   post '/users', to: 'users#create'
   get '/users/:id', to: 'users#show', as: 'show_user'
+  get '/users/:id/invites', to: 'users#invites', as: 'show_user_invites'
 
   get '/places/:id', to: 'places#show', as: 'show_place'
 
