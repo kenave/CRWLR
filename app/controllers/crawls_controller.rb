@@ -24,7 +24,7 @@ class CrawlsController < ApplicationController
   end
 
   def url_maker(places)
-    url = "https://maps.googleapis.com/maps/api/staticmap?&size=600x300&maptype=roadmap"
+    url = "https://maps.googleapis.com/maps/api/staticmap?&size=500x300&maptype=roadmap"
     # &markers=label: index | lat , long
     places.each_with_index do |place, i|
       index = i + 1
