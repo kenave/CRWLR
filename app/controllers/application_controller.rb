@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   end
 
   def home
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+      redirect_to show_user_path(@user)
+    end
   end
 
   def current_user
