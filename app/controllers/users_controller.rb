@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @places = @invited_crawls.map do |crawl|
       crawl.places
     end
-    byebug
+    #byebug
   end
 
   private

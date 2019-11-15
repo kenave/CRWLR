@@ -1,6 +1,6 @@
 <div class="container">
-    <%# <div class="card border-0 shadow my-5"> %>
-    <%# <div class="card-body p-5"> %>
+    <div class="card border-0 shadow my-5 custom-opacity">
+    <div class="card-body p-4">
     <h2>Hey, <%=current_user.name%>! Here are the crawls you've been invited to.</h2>
     <br>
     <%if @invited_crawls.empty?%>
@@ -21,4 +21,6 @@
             <%end %>
         </div>
     <%end %>
+    </div>
+    </div>
 </div>
