@@ -1,6 +1,8 @@
 <% if @crawl.host == current_user %>
 
-  <div class="container">  
+  <div class="container">
+    <div class="card border-0 shadow my-5 custom-opacity">
+    <div class="card-body p-4">
     <h2 class="my-4"><%=@crawl.name%>
       <small><%=@crawl.location%></small>
     </h2>
@@ -12,7 +14,7 @@
       <% @places.each_with_index do |place, i| %>
       <h4><%= link_to place.name, show_place_path(place) %></h4>
       <p>Duration: <%= @crawl_places[i].duration %> Hours</p>
-      <%= button_to "Remove from Crawl", delete_crawl_place_path(@crawl), method: :delete, params: {crawl_place: {crawl_id: @crawl.id, place_id: place.id, duration: @duration} } %>
+      <%= button_to "Remove from Crawl", delete_crawl_place_path(@crawl), method: :delete, params: {crawl_place: {crawl_id: @crawl.id, place_id: place.id, duration: @duration}}, class: "btn btn-danger" %>
       <br>
       <% end %>
     <% end %>
@@ -48,8 +50,9 @@
           <%end%>
         <%end%>
       </div>
+      </div>
+      </div>
   </div>
-
 <% elsif @guests.include?(current_user) %>
     <div class="container">  
     <h2 class="my-4"><%=@crawl.name%>
@@ -71,7 +74,10 @@
       </div>
     <br><br>
   </div>
-
-<% else %>
-  <p> You do not have access to this page </p>
+  <% else %>
+  <div class="card border-0 shadow my-5 custom-opacity">
+  <div class="card-body p-4">
+    <p> You do not have access to this page </p>
+    </div>
+    </div>
 <% end %>
